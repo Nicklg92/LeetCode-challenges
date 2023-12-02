@@ -1,0 +1,37 @@
+#####################################
+##PROBLEM 14: COMMON LONGEST PREFIX##
+#####################################
+
+#Difficulty: Easy
+#Language: Python
+
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+
+        #It should be immediate the no-common case
+
+        i = 0
+
+        common = []
+
+        try:
+
+            while len(set([x[i] for x in strs])) == 1:
+
+                common.append(list(set([x[i] for x in strs]))[0])
+
+                i = i + 1
+        except:
+
+            print("One of the words is over")
+
+        common_joined = ''.join(common)
+
+        if len(common_joined) == 0:
+
+            return ""
+
+        else:
+        
+            return common_joined
+
