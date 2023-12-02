@@ -1,0 +1,94 @@
+##################################
+###PROBLEM 13: ROMAN TO INTEGER###
+##################################
+
+#Difficulty: Easy.
+#Language: Python.
+
+class Solution:
+    def romanToInt(self, s: str) -> int:
+
+        new_s = []
+
+        if "IV" in s:
+
+            new_s.append("4")
+
+            s = s.replace("IV", "4")
+
+        if "IX" in s:
+
+            new_s.append("9")
+    
+            s = s.replace("IX", "9")
+
+        if "XL" in s:
+
+            new_s.append("40")
+
+            s = s.replace("XL", "40")
+
+        if "XC" in s:
+
+            new_s.append("90")
+
+            s = s.replace("XC", "90")
+
+        if "CD" in s:
+
+            new_s.append("400")
+
+            s = s.replace("CD", "400")
+
+        if "CM" in s:
+
+            new_s.append("900")
+            
+            s = s.replace("CM", "900")
+
+        print(new_s)
+
+        print(s)
+
+        s_list = []
+
+        for i in s:
+
+            s_list.append(i)
+
+        print(s_list)
+
+        for i in s_list:
+
+            if i == "M":
+
+                new_s.append("1000")
+            
+            if i == "D":
+
+                new_s.append("500")
+
+            if i == "C":
+
+                new_s.append("100")
+            
+            if i == "L":
+
+                new_s.append("50")
+
+            if i == "X":
+
+                new_s.append("10")
+            
+            if i == "V":
+
+                new_s.append("5")
+
+            if i == "I":
+
+                new_s.append("1")
+    
+        new_s_ints = [int(x) for x in new_s]
+
+        return sum(new_s_ints)
+
