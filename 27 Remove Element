@@ -1,0 +1,48 @@
+################################
+###PROBLEM 27: REMOVE ELEMENT###
+################################
+
+#Difficulty: Easy
+#Language: Python
+
+class Solution:
+    def removeElement(self, nums: List[int], val: int) -> int:
+
+        if len(nums) > 0 and nums[0] == val:
+
+            del(nums[0])
+
+        if len(set(nums)) == 1 and nums[0] == val:
+
+            nums = []
+
+        i = 0
+
+        while i < len(nums):
+
+            if nums[0] == val:
+
+                del(nums[0])
+
+                i = i + 1
+
+            try:
+
+                if nums[i] == val:
+
+                    del(nums[i])
+
+                    i = i - 1
+
+                else: 
+
+                    i = i + 1
+
+            except:
+
+                print("No more elements")
+
+        return len(nums)
+
+
+            
