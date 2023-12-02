@@ -1,0 +1,18 @@
+#####################################################################
+###PROBLEM 28:  FIND THE INDEX OF THE FIRST OCCURRENCE IN A STRING###
+#####################################################################
+
+#Difficulty: Easy
+#Language: Python
+
+class Solution:
+
+    def strStr(self, haystack: str, needle: str) -> int:
+
+        if needle not in haystack:
+
+            return -1
+
+        else:
+
+            return haystack.index(needle)
