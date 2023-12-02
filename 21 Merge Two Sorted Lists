@@ -1,0 +1,68 @@
+######################################
+##PROBLEM 21: MERGE TWO SORTED LISTS##
+######################################
+
+#Difficulty: Easy
+#Language: Python
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+
+    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+
+        #Logic: First, let's extract the values from the linked lists and put them in a "normal list".
+        #Then, we simply concatenate the two lists and sort the obtained one.
+        #Finally, since the result has to be a ListNode() object, we convert back this merged list again
+        #in a ListNode() object.
+        
+        list1_as_list = []
+
+        while list1:
+
+            list1_as_list.append(list1.val)
+
+            list1 = list1.next
+
+        list2_as_list = []
+
+        while list2:
+
+            list2_as_list.append(list2.val)
+
+            list2 = list2.next
+
+        list1_list2 = list1_as_list + list2_as_list
+
+        list1_list2_sorted = sorted(list1_list2)
+
+        #The result nonetheless has to be a ListNode object. Hence, let's tranform it into one.
+        #Start creating two empty linked lists
+
+        a = b = ListNode()
+
+        #Then, we loop over the elements of list1_list2_sorted, simply appending as initial value
+        #the first element of list1_list2_sorted, and then as next all the following ones.
+
+        for i in list1_list2_sorted:
+
+            a.next = ListNode(i)
+
+            a = a.next
+
+        #b only now points to the initial ListNode object, whose next attribute is indeed
+        #the lists linked
+        
+        return b.next
+        
+
+
+
+
+        
+
+
+
