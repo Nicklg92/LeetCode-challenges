@@ -1,0 +1,54 @@
+###################################
+##PROBLEM 58: LENGTH OF LAST WORD##
+###################################
+
+#Difficulty: Easy
+#Language: Python
+
+class Solution:
+
+    def lengthOfLastWord(self, s: str) -> int:
+
+        #Solved in 26 minutes and 13 seconds. Will start keeping track also of solving times
+        #for utility.
+
+        if_one = [x for x in s if x != ' ']
+
+        if len(if_one) == 1:
+
+            return len(if_one)
+
+        last_word = []
+
+        i = 1
+
+        while i < len(s):
+
+            if s[-i] == " ":
+
+                i += 1
+
+            else:
+                
+                try:
+
+                    while s[-i] != " ":
+
+                        print(s[-i])
+
+                        last_word.append(s[-i])
+
+                        i += 1
+
+                except:
+
+                    print('The string is over')
+
+                break
+
+        return len(last_word)
+
+
+
+
+
