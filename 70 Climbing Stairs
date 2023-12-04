@@ -1,0 +1,96 @@
+###############################
+##PROBLEM 70: CLIMBING STAIRS##
+###############################
+
+#Difficulty: Easy
+#Language: Python
+
+class Solution:
+
+    def climbStairs(self, n: int) -> int:
+
+        #Imagine 7 stairs. A part from the obvious 1 + 1 + ... = 7, we have:
+
+        #1) 4 cases in which I double jump every possible time:
+        
+        #(2+2+2+1)
+        #(2+2+1+2)
+        #(2+1+2+2)
+        #(1+2+2+2)
+
+        #2) 4 cases in which I double jump only two times, consecutively:
+
+        #(2+2+1+1+1)
+        #(1+2+2+1+1)
+        #(1+1+2+2+1)
+        #(1+1+1+2+2)
+
+        #3) 3 cases in which I double jump only two times, with one step in the middle:
+
+        #(2+1+2+1+1)
+        #(1+2+1+2+1)
+        #(1+1+2+1+2)
+
+        #4) 2 cases in which I double jump only two times, with two steps in the middle:
+
+        #(2+1+1+2+1)
+        #(1+2+1+1+2)
+
+        #5) 1 case in which I double jump only two times, with three steps in the middle:
+
+        #(2+1+1+1+2)
+
+        #6) 6 cases in which I double jump only one time:
+
+        #(2+1+1+1+1+1)
+        #(1+2+1+1+1+1)
+        #(1+1+2+1+1+1)
+        #(1+1+1+2+1+1)
+        #(1+1+1+1+2+1)
+        #(1+1+1+1+1+2)
+
+        #Hence, there is a total of: 1 + 4 + 4 + 3 + 2 + 1 + 6 = 21 ways to climb the stairs like int the 
+        #description.
+
+        #Moreover, we know:
+        
+        #n = 1 => 1
+        #n = 2 => 2
+        #n = 3 => 3
+        #n = 4 => 5
+        #n = 5 => 8,(1+1+1+1+1), (2+2+1), (1+2+2), (2+1+2), (1+1+1+2), (1+1+2+1), (1+2+1+1), (2+1+1+1)
+        #n = 6 =>13,(1+1+1+1+1+1), (2+2+2), (2+2+1+1), (1+2+2+1), (1+1+2+2), (2+1+2+1), (1+2+1+2), (2+1+1+2, 
+        #           (2+1+1+1+1), (1+2+1+1+1), (1+1+2+1+1), (1+1+1+2+1),(1+1+1+1+2)
+        #n = 7 => 21
+
+        #In other words, Fibonacci sequence!!
+
+        i = 0
+
+        list_for_Fib = [x for x in range(0,n)]
+
+        print([list_for_Fib, " this is list_for_Fib"])
+
+        new_sum = [0,1,2]
+
+        if n == 1:
+
+            return 1
+
+        elif n == 2:
+
+            return 2
+
+        elif n == 3:
+
+            return 3
+
+        else:
+
+            for i in range(0, len(list_for_Fib)):
+
+                new_sum.append(new_sum[-1] + new_sum[-2])
+    
+            print([new_sum, "this is new_sum"])
+
+            return new_sum[n]
