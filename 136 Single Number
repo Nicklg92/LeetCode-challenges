@@ -1,0 +1,19 @@
+##############################
+##PROBLEM 136: SINGLE NUMBER##
+##############################
+
+#Difficulty: Easy
+#Language: Python
+
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+
+       uniques = [x for x in nums if nums.count(x) == 1]
+
+       #for i in nums:
+
+        #   if nums.count(i) == 1:
+
+         #      uniques.append(i)
+
+       return uniques[0]
