@@ -1,0 +1,28 @@
+#######################
+##PROBLEM 69: SQRT(x)##
+#######################
+
+#Difficulty: Easy
+#Language: Python
+
+class Solution:
+
+    def mySqrt(self, x: int) -> int:
+
+        i = 0
+
+        while i <= x:
+
+            candidate = i * i
+
+            if candidate == x:
+
+                return i
+
+            elif candidate > x:
+
+                return i - 1
+
+            else:
+
+                i += 1
