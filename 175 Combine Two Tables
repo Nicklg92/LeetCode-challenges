@@ -1,0 +1,16 @@
+###################################
+##PROBLEM 175: COMBINE TWO TABLES##
+###################################
+
+#Difficulty: Easy
+#Language: Python
+
+import pandas as pd
+
+def combine_two_tables(person: pd.DataFrame, address: pd.DataFrame) -> pd.DataFrame:
+
+    new_df = pd.merge(person, address, on = "personId", how = "left")
+
+    new_df.drop(["personId", "addressId"], axis = 1, inplace = True)
+
+    return new_df
